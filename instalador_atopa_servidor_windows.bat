@@ -11,13 +11,13 @@ IF "%3"=="" (exit)
 
 IF NOT EXIST %ATOPA_SERVER_PATH% GOTO NOWINDIR
   CD %ATOPA_SERVER_PATH%
-  rem git pull
+  git pull
   GOTO FIN
 :NOWINDIR
 git clone --branch master %ATOPA_SERVER_URL%
 CD %ATOPA_SERVER_PATH%
-
 :FIN
+
 echo Creando las variables de entorno ....
 
 echo ENV_PASSWORD=%ATOPA_APP_PASS% > .env
@@ -34,6 +34,7 @@ echo ENV_EMAIL_PORT=587 >> .env
 
 "C:\Program Files (x86)\GnuWin32\bin\openssl.exe" req -x509 -newkey rsa:4096 -keyout atopa_key.pem -out atopa.pem -days 365 -nodes -config req.conf -sha256
 
+echo START https://%ATOPA_SERVER_IP%:%ATOPA_SERVER_PORT% >> ejecutar_atopa_servidor_windows.bat
 
 SET LF=^
 
