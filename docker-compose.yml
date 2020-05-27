@@ -1,0 +1,40 @@
+version: '3'
+
+volumes:
+    db:
+      driver: local
+      
+services:
+
+  db:
+    container_name: atopaserver_db
+    image: mysql:5.7
+    restart: always
+    environment:
+       MYSQL_DATABASE: 'atopa_app'
+       MYSQL_USER: 'atopa'
+       MYSQL_PASSWORD: 'MYSQL'
+       MYSQL_ROOT_PASSWORD: '${ENV_MYSQL_ROOT_PASSWORD}'
+    volumes:
+      - db:/var/lib/mysql
+      
+  web:
+    restart: always
+    build: .
+    container_name: atopaserver
+    volumes:
+      - .:/atopa
+    ports:
+      - '0.0.0.0:443:443'
+    depends_on:
+      - db
+    environment:
+      WAIT_HOSTS: "db:3306" 
+      EMAIL_HOST: "${ENV_EMAIL_HOST}"
+      EMAIL_HOST_USER: "${ENV_EMAIL_HOST_USER}"
+      EMAIL_HOST_PASSWORD: "${ENV_EMAIL_HOST_PASSWORD}"
+      EMAIL_PORT: "${ENV_EMAIL_PORT}"
+      PASSWORD: '${ENV_MYSQL_ROOT_PASSWORD}'
+      SERVER_IP: '${ENV_SERVER_IP}'
+      SERVER_PORT: '${ENV_SERVER_PORT}'
+

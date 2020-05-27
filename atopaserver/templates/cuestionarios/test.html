@@ -1,0 +1,914 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load octicons %}
+{% load i18n %}
+<script>
+      /**
+  * Muestra un mensaje de advertencia si el navegador no soporta Drag & Drop. (En Windows no lo soportan ni IE ni Safari)
+  **/
+function comprobarnavegador() {
+    if(
+        (navigator.userAgent.toLowerCase().indexOf('msie ') > -1) ||
+        ((navigator.userAgent.toLowerCase().indexOf('safari') > -1) && (navigator.userAgent.toLowerCase().indexOf('chrome') == -1)))
+    {
+        alert(gettext("Tu navegador no soporta correctamente las funciones Drag & Drop de HTML5. Prueba con otro navegador."));
+    }
+
+  }
+      window.onload = comprobarnavegador;
+</script>
+<body>
+{% trans 'No puede haber huecos entre alumnos' as holes %}
+<div class="header-div" id="welcome">
+  <h1>{% trans 'Bienvenido/a al cuestionario,' %} {{alumno.nombre}}</h1>
+  <h4>{% trans 'En este test tendrás que contestar a 6 preguntas sobre tus compañeros de clase.'%}</h4>
+  <h4>{% trans 'Cuando estés listo para comenzar, haz click en el botón:'%}</h4>
+</div>
+<div class="arrowleft" style="display: none" id="arrowleft">
+  <a class="arrow btn" id="arrowleftb"><span class="glyphicon glyphicon-circle-arrow-left"></span></a>
+</div>
+  {%for pregunta in preguntas%}
+  <div class="pregunta" id="{{pregunta.pregunta.tipo_pregunta}}" style="display: none">
+    <div class="header-div">
+        <h1>{{ pregunta.pregunta }}</h1>
+    </div>
+    <div class ="contenedorPictos">
+      {%for preguntaPicto, picto in pictos.items%}
+      {%if preguntaPicto == pregunta.pregunta.tipo_pregunta%}
+      {%for num, pic in picto.items%}
+      <div class="columnPictos">
+        <img src="{{pic.0}}" alt="{{pic.1}}" width="120" height="120">
+      </div>
+      {%endfor%}
+      {%endif%}
+      {%endfor%}
+
+    </div>
+    <div class="row">
+      <div class="columnleft">
+
+	<section id="contenedorPregunta">
+	  <div id="contenedorAlumnos" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)">
+	    {%for alumno in alumnos%}
+            <div class="columnAlumnos">
+            <div id="{{ alumno.id }}_{{ pregunta.pregunta.tipo_pregunta}}" class="alumno_arrastrable" value="{{ alumno.id }}" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+	    <div>{% octicon "person" height="60" %}</div> 
+	      {% if alumno.alias %}
+              <p>{{ alumno.alias}}</p>
+              {%else%}
+              <p>{{ alumno.nombre}} {{alumno.apellidos}}</p>
+              {%endif%}
+	      </div> 
+      </div>
+	    {%endfor%}
+	  </div>
+	</section>
+      </div>
+      <div class="columnright">
+        <section id="contenedorRespuesta{{pregunta.id}}" class="contenedorRespuesta">
+          <div class="row">
+            <div class="columnleftbox">
+              <div id="respuesta">
+                <div class="contenedorAlumno" id="{{pregunta.pregunta.tipo_pregunta}}1" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"><div class="number">1</div></div>
+              </div>
+            </div>
+              <div class="columnrighttext">
+                <section id="contenedorRespuesta" style="{% if pregunta.pregunta.tipo_pregunta.tipo != "PGN" and pregunta.pregunta.tipo_pregunta.tipo != "PPN" and pregunta.pregunta.tipo_pregunta.tipo != "AAN" %}display: none{%endif%}">
+                <div class="whycolumn">
+                  <img class="why" src="{{por.1}}" alt="{{por.0}}" width="15" height="15">
+                </div>
+                <div class="whycolumn2">
+                  <p class="whyquestion">¿Por qué?</p>
+                </div>
+                  <textarea rows="4" cols="26" id="{{pregunta.pregunta.tipo_pregunta}}text1" disabled></textarea>
+                </section>
+              </div>
+          </div>
+          <div class="row">
+            <div class="columnleftbox">
+              <div id="respuesta">
+                      <div class="contenedorAlumno" id="{{pregunta.pregunta.tipo_pregunta}}2" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"><div class="number">2</div></div>
+              </div>
+            </div>
+              <div class="columnrighttext">
+                <section id="contenedorRespuesta" style="{% if pregunta.pregunta.tipo_pregunta.tipo != "PGN" and pregunta.pregunta.tipo_pregunta.tipo != "PPN" and pregunta.pregunta.tipo_pregunta.tipo != "AAN" %}display: none{%endif%}">
+                <div class="whycolumn">
+                <img class="why" src="{{por.1}}" alt="{{por.0}}" width="15" height="15">
+                </div>
+                  <div class="whycolumn2">
+                  <p class="whyquestion">¿Por qué?</p>
+                  </div>
+                  <textarea rows="4" cols="26" id="{{pregunta.pregunta.tipo_pregunta}}text2" disabled></textarea>
+                </section>
+              </div>
+          </div>
+          <div class="row">
+            <div class="columnleftbox">
+              <div id="respuesta">
+                      <div class="contenedorAlumno" id="{{pregunta.pregunta.tipo_pregunta}}3" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"><div class="number">3</div></div>
+              </div>
+            </div>
+              <div class="columnrighttext">
+                <section id="contenedorRespuesta" style="{% if pregunta.pregunta.tipo_pregunta.tipo != "PGN" and pregunta.pregunta.tipo_pregunta.tipo != "PPN" and pregunta.pregunta.tipo_pregunta.tipo != "AAN" %}display: none{%endif%}">
+                <div class="whycolumn">
+                  <img class="why" src="{{por.1}}" alt="{{por.0}}" width="15" height="15">
+                </div>
+                <div class="whycolumn2">
+                  <p class="whyquestion">¿Por qué?</p>
+                </div>
+                  <textarea rows="4" cols="26" id="{{pregunta.pregunta.tipo_pregunta}}text3" disabled></textarea>
+                </section>
+              </div>
+          </div>
+          <div class="row">
+            <div class="columnleftbox">
+              <div id="respuesta">
+                      <div class="contenedorAlumno" id="{{pregunta.pregunta.tipo_pregunta}}4" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"><div class="number">4</div></div>
+              </div>
+            </div>
+              <div class="columnrighttext">
+                <section id="contenedorRespuesta" style="{% if pregunta.pregunta.tipo_pregunta.tipo != "PGN" and pregunta.pregunta.tipo_pregunta.tipo != "PPN" and pregunta.pregunta.tipo_pregunta.tipo != "AAN" %}display: none{%endif%}">
+                <div class="whycolumn">
+                  <img class="why" src="{{por.1}}" alt="{{por.0}}" width="15" height="15">
+                </div>
+                <div class="whycolumn2">
+                  <p class="whyquestion">¿Por qué?</p>
+                </div>
+                  <textarea rows="4" cols="26" id="{{pregunta.pregunta.tipo_pregunta}}text4" disabled></textarea>
+                </section>
+              </div>
+          </div>
+          <div class="row">
+            <div class="columnleftbox">
+              <div id="respuesta">
+                      <div class="contenedorAlumno" id="{{pregunta.pregunta.tipo_pregunta}}5" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"><div class="number">5</div></div>
+              </div>
+          </div>
+              <div class="columnrighttext">
+                <section id="contenedorRespuesta" style="{% if pregunta.pregunta.tipo_pregunta.tipo != "PGN" and pregunta.pregunta.tipo_pregunta.tipo != "PPN" and pregunta.pregunta.tipo_pregunta.tipo != "AAN" %}display: none{%endif%}">
+                <div class="whycolumn">
+                  <img class="why" src="{{por.1}}" alt="{{por.0}}" width="15" height="15">
+                </div>
+                <div class="whycolumn2">
+                  <p class="whyquestion">¿Por qué?</p>
+                </div>
+                  <textarea rows="4" cols="26" id="{{pregunta.pregunta.tipo_pregunta}}text5" disabled></textarea>
+                </section>
+              </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    </div>
+  {%endfor%}
+<div class="arrowright" style="display: none" id="arrowright">
+  <a class="arrow btn" id="arrowrightb"><span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+</div>
+
+  <nav aria-label="Page navigation example" style="display: none" id="nav">
+    <ul class="pagination pg-blue pagination-lg">
+      <li class="page-item disabled" id="Previous">
+        <a class="page-link" tabindex="-1">{% trans 'Anterior' %}</a>
+      </li>
+      <li class="page-item active" id="1"><a class="page-link">1 <span class="sr-only">(current)</span></a></li>
+      <li class="page-item" id="2">
+        <a class="page-link">2</a>
+      </li>
+      <li class="page-item" id="3"><a class="page-link">3</a></li>
+      <li class="page-item" id="4"><a class="page-link">4</a></li>
+      <li class="page-item" id="5"><a class="page-link">5</a></li>
+      <li class="page-item" id="6"><a class="page-link">6</a></li>
+      <li class="page-item" id="Next">
+        <a class="page-link">{% trans 'Siguiente' %}</a>
+      </li>
+    </ul>
+  </nav>
+<br>
+<button class="btn btn-primary btn-lg" style="margin-bottom: 80px" id="start">Empezar</button>
+
+  <form id="RespuestasForm" action="/recoger_respuestas" method="post" style="display: none">
+    {%csrf_token%}
+    <input type="hidden" id="respuestasInput" name="respuestas" value="">
+    <button class="btn btn-primary btn-lg" style="margin-bottom: 80px">Enviar respuestas</button>
+    </form>
+<!--    <button class="btn btn-primary btn-lg" style="margin-bottom: 80px" onclick="check()">Check</button>-->
+</body>
+<script type="text/javascript" src="{% static 'base.js' %}"></script>
+<script>
+
+document.getElementById("1").addEventListener("click", changepage1);
+document.getElementById("2").addEventListener("click", changepage2);
+document.getElementById("3").addEventListener("click", changepage3);
+document.getElementById("4").addEventListener("click", changepage4);
+document.getElementById("5").addEventListener("click", changepage5);
+document.getElementById("6").addEventListener("click", changepage6);
+document.getElementById("Previous").addEventListener("click", changepagep);
+document.getElementById("Next").addEventListener("click", changepagen);
+document.getElementById("start").addEventListener("click", starttest);
+document.getElementById("arrowleftb").addEventListener("click", changepagep);
+document.getElementById("arrowrightb").addEventListener("click", changepagen);
+
+function starttest() {
+  document.getElementById("welcome").style.display = "none";
+  document.getElementById("start").style.display = "none";
+  document.getElementById('PGP').style.display = "block";
+  document.getElementById('nav').style.display = "block";
+  document.getElementById('RespuestasForm').style.display = "block";
+  document.getElementById('arrowright').style.display = "block";
+  document.getElementById('arrowleft').style.display = "block";
+  document.getElementById('arrowleftb').classList.add('disabled');
+}
+
+function changepage1() {
+  if (!checkAnswers()) {
+    alert("{{holes}}")
+  } else {
+    current = document.getElementsByClassName('page-item active')[0]
+    questionId = ''
+    if (current.id == "1") {
+      questionId = 'PGP'
+    } else if (current.id == "2") {
+      questionId = 'PGN'
+    } else if (current.id == "3") {
+      questionId = 'PPP'
+    } else if (current.id == "4") {
+      questionId = 'PPN'
+    } else if (current.id == "5") {
+      questionId = 'AAP'
+    } else if (current.id == "6") {
+      questionId = 'AAN'
+    }
+    document.getElementById(questionId).style.display = "none";
+    current.classList.remove('active');
+    document.getElementById('PGP').style.display = "block";
+    document.getElementById('1').classList.add('active');
+    document.getElementById('Previous').classList.add('disabled');
+    if (document.getElementById('Next').classList.contains('disabled')) {
+      document.getElementById('Next').classList.remove('disabled');
+    }
+    document.getElementById('arrowleftb').classList.add('disabled');
+    if (document.getElementById('arrowrightb').classList.contains('disabled')) {
+      document.getElementById('arrowrightb').classList.remove('disabled');
+    }
+  }
+}
+
+function changepage2() {
+  if (!checkAnswers()) {
+    alert("{{holes}}")
+  } else {
+    current = document.getElementsByClassName('page-item active')[0];
+    questionId = ''
+    if (current.id == "1") {
+      questionId = 'PGP'
+    } else if (current.id == "2") {
+      questionId = 'PGN'
+    } else if (current.id == "3") {
+      questionId = 'PPP'
+    } else if (current.id == "4") {
+      questionId = 'PPN'
+    } else if (current.id == "5") {
+      questionId = 'AAP'
+    } else if (current.id == "6") {
+      questionId = 'AAN'
+    }
+    document.getElementById(questionId).style.display = "none";
+    current.classList.remove('active');
+    document.getElementById('PGN').style.display = "block";
+    document.getElementById('2').classList.add('active');
+    if (document.getElementById('Previous').classList.contains('disabled')) {
+      document.getElementById('Previous').classList.remove('disabled');
+    }
+    if (document.getElementById('Next').classList.contains('disabled')) {
+      document.getElementById('Next').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowleftb').classList.contains('disabled')) {
+      document.getElementById('arrowleftb').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowrightb').classList.contains('disabled')) {
+      document.getElementById('arrowrightb').classList.remove('disabled');
+    }
+  }
+}
+
+function changepage3() {
+  if (!checkAnswers()) {
+    alert("{{holes}}")
+  } else {
+    current = document.getElementsByClassName('page-item active')[0];
+    questionId = ''
+    if (current.id == "1") {
+      questionId = 'PGP'
+    } else if (current.id == "2") {
+      questionId = 'PGN'
+    } else if (current.id == "3") {
+      questionId = 'PPP'
+    } else if (current.id == "4") {
+      questionId = 'PPN'
+    } else if (current.id == "5") {
+      questionId = 'AAP'
+    } else if (current.id == "6") {
+      questionId = 'AAN'
+    }
+    document.getElementById(questionId).style.display = "none";
+    current.classList.remove('active');
+    document.getElementById('PPP').style.display = "block";
+    document.getElementById('3').classList.add('active');
+    if (document.getElementById('Previous').classList.contains('disabled')) {
+      document.getElementById('Previous').classList.remove('disabled');
+    }
+    if (document.getElementById('Next').classList.contains('disabled')) {
+      document.getElementById('Next').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowleftb').classList.contains('disabled')) {
+      document.getElementById('arrowleftb').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowrightb').classList.contains('disabled')) {
+      document.getElementById('arrowrightb').classList.remove('disabled');
+    }
+   }
+}
+
+function changepage4() {
+  if (!checkAnswers()) {
+    alert("{{holes}}")
+  } else {
+    current = document.getElementsByClassName('page-item active')[0];
+    questionId = ''
+    if (current.id == "1") {
+      questionId = 'PGP'
+    } else if (current.id == "2") {
+      questionId = 'PGN'
+    } else if (current.id == "3") {
+      questionId = 'PPP'
+    } else if (current.id == "4") {
+      questionId = 'PPN'
+    } else if (current.id == "5") {
+      questionId = 'AAP'
+    } else if (current.id == "6") {
+      questionId = 'AAN'
+    }
+    document.getElementById(questionId).style.display = "none";
+    current.classList.remove('active');
+    document.getElementById('PPN').style.display = "block";
+    document.getElementById('4').classList.add('active');
+    if (document.getElementById('Previous').classList.contains('disabled')) {
+      document.getElementById('Previous').classList.remove('disabled');
+    }
+    if (document.getElementById('Next').classList.contains('disabled')) {
+      document.getElementById('Next').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowleftb').classList.contains('disabled')) {
+      document.getElementById('arrowleftb').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowrightb').classList.contains('disabled')) {
+      document.getElementById('arrowrightb').classList.remove('disabled');
+    }
+  }
+}
+
+function changepage5() {
+  if (!checkAnswers()) {
+    alert("{{holes}}")
+  } else {
+    current = document.getElementsByClassName('page-item active')[0];
+    questionId = ''
+    if (current.id == "1") {
+      questionId = 'PGP'
+    } else if (current.id == "2") {
+      questionId = 'PGN'
+    } else if (current.id == "3") {
+      questionId = 'PPP'
+    } else if (current.id == "4") {
+      questionId = 'PPN'
+    } else if (current.id == "5") {
+      questionId = 'AAP'
+    } else if (current.id == "6") {
+      questionId = 'AAN'
+    }
+    document.getElementById(questionId).style.display = "none";
+    current.classList.remove('active');
+    document.getElementById('AAP').style.display = "block";
+    document.getElementById('5').classList.add('active');
+    if (document.getElementById('Previous').classList.contains('disabled')) {
+      document.getElementById('Previous').classList.remove('disabled');
+    }
+    if (document.getElementById('Next').classList.contains('disabled')) {
+      document.getElementById('Next').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowleftb').classList.contains('disabled')) {
+      document.getElementById('arrowleftb').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowrightb').classList.contains('disabled')) {
+      document.getElementById('arrowrightb').classList.remove('disabled');
+    }
+  }
+}
+
+function changepage6() {
+  if (!checkAnswers()) {
+    alert("{{holes}}")
+  } else {
+    current = document.getElementsByClassName('page-item active')[0];
+    questionId = ''
+    if (current.id == "1") {
+      questionId = 'PGP'
+    } else if (current.id == "2") {
+      questionId = 'PGN'
+    } else if (current.id == "3") {
+      questionId = 'PPP'
+    } else if (current.id == "4") {
+      questionId = 'PPN'
+    } else if (current.id == "5") {
+      questionId = 'AAP'
+    } else if (current.id == "6") {
+      questionId = 'AAN'
+    }
+    document.getElementById(questionId).style.display = "none";
+    current.classList.remove('active');
+    document.getElementById('AAN').style.display = "block";
+    document.getElementById('6').classList.add('active');
+    if (document.getElementById('Previous').classList.contains('disabled')) {
+      document.getElementById('Previous').classList.remove('disabled');
+    }
+    document.getElementById('Next').classList.add('disabled');
+    }
+    if (document.getElementById('arrowleftb').classList.contains('disabled')) {
+      document.getElementById('arrowleftb').classList.remove('disabled');
+    }
+    document.getElementById('arrowrightb').classList.add('disabled');
+}
+
+function changepagep() {
+  if (!checkAnswers()) {
+    alert("{{holes}}")
+  } else {
+  current = document.getElementsByClassName('page-item active')[0];
+  questionId = ''
+  next = parseInt(current.id) - 1
+  nextQuestion = ''
+  if (current.id == "2") {
+    questionId = 'PGN'
+    nextQuestion = 'PGP'
+  } else if (current.id == "3") {
+    questionId = 'PPP'
+    nextQuestion = 'PGN'
+  } else if (current.id == "4") {
+    questionId = 'PPN'
+    nextQuestion = 'PPP'
+  } else if (current.id == "5") {
+    questionId = 'AAP'
+    nextQuestion = 'PPN'
+  } else if (current.id == "6") {
+    questionId = 'AAN'
+    nextQuestion = 'AAP'
+  }
+  document.getElementById(questionId).style.display = "none";
+  current.classList.remove('active');
+
+  document.getElementById(nextQuestion).style.display = "block";
+  document.getElementById(next.toString()).classList.add('active');
+  if (next == 1) {
+    document.getElementById('Previous').classList.add('disabled');
+    if (document.getElementById('Next').classList.contains('disabled')) {
+      document.getElementById('Next').classList.remove('disabled');
+    }
+    document.getElementById('arrowleftb').classList.add('disabled');
+    if (document.getElementById('arrowrightb').classList.contains('disabled')) {
+      document.getElementById('arrowrightb').classList.remove('disabled');
+    }
+  } else if (next == 6) {
+    if (document.getElementById('Previous').classList.contains('disabled')) {
+      document.getElementById('Previous').classList.remove('disabled');
+    }
+    document.getElementById('Next').classList.add('disabled');
+    if (document.getElementById('arrowleftb').classList.contains('disabled')) {
+      document.getElementById('arrowleftb').classList.remove('disabled');
+    }
+    document.getElementById('arrowrightb').classList.add('disabled');
+  } else {
+    if (document.getElementById('Previous').classList.contains('disabled')) {
+      document.getElementById('Previous').classList.remove('disabled');
+    }
+    if (document.getElementById('Next').classList.contains('disabled')) {
+      document.getElementById('Next').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowleftb').classList.contains('disabled')) {
+      document.getElementById('arrowleftb').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowrightb').classList.contains('disabled')) {
+      document.getElementById('arrowrightb').classList.remove('disabled');
+    }
+  }
+  }
+
+}
+
+function changepagen() {
+  if (!checkAnswers()) {
+    alert("{{holes}}")
+  } else {
+  current = document.getElementsByClassName('page-item active')[0];
+  questionId = ''
+  next = parseInt(current.id) + 1
+  nextQuestion = ''
+  if (current.id == "1") {
+    questionId = 'PGP'
+    nextQuestion = 'PGN'
+  } else if (current.id == "2") {
+    questionId = 'PGN'
+    nextQuestion = 'PPP'
+  } else if (current.id == "3") {
+    questionId = 'PPP'
+    nextQuestion = 'PPN'
+  } else if (current.id == "4") {
+    questionId = 'PPN'
+    nextQuestion = 'AAP'
+  } else if (current.id == "5") {
+    questionId = 'AAP'
+    nextQuestion = 'AAN'
+  }
+  document.getElementById(questionId).style.display = "none";
+  current.classList.remove('active');
+
+  document.getElementById(nextQuestion).style.display = "block";
+  document.getElementById(next.toString()).classList.add('active');
+  if (next == 1) {
+    document.getElementById('Previous').classList.add('disabled');
+    if (document.getElementById('Next').classList.contains('disabled')) {
+      document.getElementById('Next').classList.remove('disabled');
+    }
+    document.getElementById('arrowleftb').classList.add('disabled');
+    if (document.getElementById('arrowrightb').classList.contains('disabled')) {
+      document.getElementById('arrowrightb').classList.remove('disabled');
+    }
+  } else if (next == 6) {
+    if (document.getElementById('Previous').classList.contains('disabled')) {
+      document.getElementById('Previous').classList.remove('disabled');
+    }
+    document.getElementById('Next').classList.add('disabled');
+    if (document.getElementById('arrowleftb').classList.contains('disabled')) {
+      document.getElementById('arrowleftb').classList.remove('disabled');
+    }
+    document.getElementById('arrowrightb').classList.add('disabled');
+  } else {
+    if (document.getElementById('Previous').classList.contains('disabled')) {
+      document.getElementById('Previous').classList.remove('disabled');
+    }
+    if (document.getElementById('Next').classList.contains('disabled')) {
+      document.getElementById('Next').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowleftb').classList.contains('disabled')) {
+      document.getElementById('arrowleftb').classList.remove('disabled');
+    }
+    if (document.getElementById('arrowrightb').classList.contains('disabled')) {
+      document.getElementById('arrowrightb').classList.remove('disabled');
+    }
+  }
+  }
+}
+
+  /**
+* Función que se ejecuta al arrastrar el elemento.
+**/
+function start(e) {
+    e.dataTransfer.effecAllowed = 'move'; // Define el efecto como mover (Es el por defecto)
+    e.dataTransfer.setData("Text", e.target.id); // Coje el elemento que se va a mover
+    e.target.style.opacity = '0.4';
+}
+
+/**
+* Función que se ejecuta se termina de arrastrar el elemento.
+**/
+function end(e){
+    e.target.style.opacity = ''; // Restaura la opacidad del elemento
+    e.dataTransfer.clearData("Data");
+}
+
+/**
+* Función que se ejecuta cuando un elemento arrastrable entra en el elemento desde del que se llama.
+**/
+function enter(e) {
+    return true;
+}
+
+/**
+* Función que se ejecuta cuando un elemento arrastrable esta sobre el elemento desde del que se llama.
+* Devuelve false si el objeto se puede soltar en ese elemento y true en caso contrario.
+**/
+function over(e) {
+    console.log(e.target.className)
+    var elementoArrastrado = e.dataTransfer.getData("Text");
+    if ( ( e.target.id == "contenedorAlumnos" || e.target.className == "alumno_arrastrable" || e.target.className == "columnAlumnos" ) && document.getElementById(elementoArrastrado).parentElement.className == "columnAlumnos" )
+      return true;
+    else
+      if ((e.target.className == "contenedorAlumno") || (e.target.className == "number") || (e.target.id == "contenedorAlumnos") || e.target.className == "alumno_arrastrable" || e.target.className == "columnAlumnos")
+        return false;
+      else
+        return true;
+}
+
+/**
+* Función que se ejecuta cuando un elemento arrastrable se suelta sobre el elemento desde del que se llama.
+**/
+function drop(e){
+    e.preventDefault(); // Evita que se ejecute la accion por defecto del elemento soltado.
+    var elementoArrastrado = e.dataTransfer.getData("Text");
+    var questionName = elementoArrastrado.split('_')[1]
+    var first = document.getElementById(questionName+"1")
+    var second = document.getElementById(questionName+"2")
+    var third = document.getElementById(questionName+"3")
+    var fourth = document.getElementById(questionName+"4")
+    var fifth = document.getElementById(questionName+"5")
+
+    if (e.target.id == "contenedorAlumnos") {
+      var div = document.createElement('div');
+      div.className = 'columnAlumnos';
+      div.appendChild(document.getElementById(elementoArrastrado));
+      e.target.appendChild(div);
+    } else if (e.target.className == "alumno_arrastrable") {
+      var parent = e.target.parentElement.parentElement
+      var div = document.createElement('div');
+      div.className = 'columnAlumnos';
+      div.appendChild(document.getElementById(elementoArrastrado));
+      parent.appendChild(div)
+    } else if (e.target.className == "columnAlumnos") {
+      var parent = e.target.parentElement
+      var div = document.createElement('div');
+      div.className = 'columnAlumnos';
+      div.appendChild(document.getElementById(elementoArrastrado));
+      parent.appendChild(div)
+    } else {
+      var parent = document.getElementById(elementoArrastrado).parentElement
+      if (first.firstChild.className == "number") {
+       first.firstChild.remove()
+       first.appendChild(document.getElementById(elementoArrastrado)); // Coloca el elemento soltado sobre el elemento desde el que se llamo esta funcion
+       var textarea = document.getElementById(questionName+"text1")
+       textarea.disabled = false;
+       textarea.placeholder = "Escribe aquí tu respuesta..."
+       textarea.parentElement.style.color = "#000000"
+      } else if (second.firstChild.className == "number") {
+       second.firstChild.remove()
+       second.appendChild(document.getElementById(elementoArrastrado)); // Coloca el elemento soltado sobre el elemento desde el que se llamo esta funcion
+       var textarea = document.getElementById(questionName+"text2")
+       textarea.disabled = false;
+       textarea.placeholder = "Escribe aquí tu respuesta..."
+       textarea.parentElement.style.color = "#000000"
+      } else if (third.firstChild.className == "number") {
+       third.firstChild.remove()
+       third.appendChild(document.getElementById(elementoArrastrado)); // Coloca el elemento soltado sobre el elemento desde el que se llamo esta funcion
+       var textarea = document.getElementById(questionName+"text3")
+       textarea.disabled = false;
+       textarea.placeholder = "Escribe aquí tu respuesta..."
+       textarea.parentElement.style.color = "#000000"
+      } else if (fourth.firstChild.className == "number") {
+       fourth.firstChild.remove()
+       fourth.appendChild(document.getElementById(elementoArrastrado)); // Coloca el elemento soltado sobre el elemento desde el que se llamo esta funcion
+       var textarea = document.getElementById(questionName+"text4")
+       textarea.disabled = false;
+       textarea.placeholder = "Escribe aquí tu respuesta..."
+       textarea.parentElement.style.color = "#000000"
+      } else if (fifth.firstChild.className == "number") {
+       fifth.firstChild.remove()
+       fifth.appendChild(document.getElementById(elementoArrastrado)); // Coloca el elemento soltado sobre el elemento desde el que se llamo esta funcion
+       var textarea = document.getElementById(questionName+"text5")
+       textarea.disabled = false;
+       textarea.placeholder = "Escribe aquí tu respuesta..."
+       textarea.parentElement.style.color = "#000000"
+      }
+      if (parent.className != "contenedorAlumno") {
+        parent.remove()
+      }
+    }
+    if (!first.hasChildNodes()) {
+        var div = document.createElement('div');
+        div.className = 'number';
+        div.innerHTML += 1;
+        first.appendChild(div);
+       var textarea = document.getElementById(questionName+"text1")
+       textarea.disabled = true;
+       textarea.placeholder = ""
+       textarea.value = ''
+       textarea.parentElement.style.color = "#ccc"
+      }
+    if (!second.hasChildNodes()) {
+        var div = document.createElement('div');
+        div.className = 'number';
+        div.innerHTML += 2;
+        second.appendChild(div);
+       var textarea = document.getElementById(questionName+"text2")
+       textarea.disabled = true;
+       textarea.placeholder = ""
+       textarea.value = ''
+       textarea.parentElement.style.color = "#ccc"
+      }
+    if (!third.hasChildNodes()) {
+        var div = document.createElement('div');
+        div.className = 'number';
+        div.innerHTML += 3;
+        third.appendChild(div);
+       var textarea = document.getElementById(questionName+"text3")
+       textarea.disabled = true;
+       textarea.placeholder = ""
+       textarea.value = ''
+       textarea.parentElement.style.color = "#ccc"
+      }
+    if (!fourth.hasChildNodes()) {
+        var div = document.createElement('div');
+        div.className = 'number';
+        div.innerHTML += 4;
+        fourth.appendChild(div);
+       var textarea = document.getElementById(questionName+"text4")
+       textarea.disabled = true;
+       textarea.placeholder = ""
+       textarea.value = ''
+       textarea.parentElement.style.color = "#ccc"
+     }
+     if (!fifth.hasChildNodes()) {
+        var div = document.createElement('div');
+        div.className = 'number';
+        div.innerHTML += 5;
+        fifth.appendChild(div);
+       var textarea = document.getElementById(questionName+"text5")
+       textarea.disabled = true;
+       textarea.placeholder = ""
+       textarea.value = ''
+       textarea.parentElement.style.color = "#ccc"
+     }
+}
+
+function checkAnswers() {
+  var questionName = '';
+  for (var i = 0; i < document.getElementsByClassName("pregunta").length; i++) {
+    if (document.getElementsByClassName("pregunta")[i].style.display != "none") {
+      questionName = document.getElementsByClassName("pregunta")[i].id;
+    }
+  }
+  var first = document.getElementById(questionName+"1")
+  var second = document.getElementById(questionName+"2")
+  var third = document.getElementById(questionName+"3")
+  var fourth = document.getElementById(questionName+"4")
+  var fifth = document.getElementById(questionName+"5")
+  if ((first.firstChild.className == "number" && (second.firstChild.className != "number" || third.firstChild.className != "number" || fourth.firstChild.className != "number" || fifth.firstChild.className != "number"))
+      || (second.firstChild.className == "number" && (third.firstChild.className != "number" || fourth.firstChild.className != "number" || fifth.firstChild.className != "number")) ||
+      (third.firstChild.className == "number" && (fourth.firstChild.className != "number" || fifth.firstChild.className != "number")) || (fourth.firstChild.className == "number" && fifth.firstChild.className != "number") ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+
+</script>
+<style>
+h1 {
+  color: #fffff8;
+  text-align: center;
+}
+
+/* Contenedor del respuesta*/
+#contenedorRespuesta {
+    width: 100%;
+    box-shadow: 0px 0px 10px  2px #777;
+    padding: 20px;
+    color: #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.contenedorRespuesta {
+width: 100%;
+float: left;
+}
+
+/* Respuesta */
+#contenedorAlumnos{
+    width: 100%;
+height: auto;
+min-height: 900px;
+    float: left;
+    box-shadow: 0px 0px 10px  2px #d0eb6a;
+    border-radius: 20px;
+}
+textarea {
+    resize: vertical;
+}
+#respuesta {
+    width: 100px;
+    height: 120px;
+    float: left;
+    margin: 10px;
+    box-shadow: 0px 0px 10px  2px #e7931a;
+    border-radius: 20px;
+}
+.contenedorAlumno {
+    width: 90px;
+    height: 110px;
+}
+
+.contenedorPictos {
+  text-align: center;
+}
+
+.number {
+  font-weight: bold;
+  font-size: 200%;
+  line-height:100px;
+  padding-left: 10px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.arrow {
+  font-weight: bold;
+  font-size: 100px;
+}
+
+#contenedorRespuesta img {
+    float: left;
+    padding: 1px;
+    width: 98px;
+    height: 98px;
+}
+.alumno_arrastrable{
+width:100px;
+height: 120px;
+border-radius: 20px;
+border: #80808059 5px solid;
+}
+
+.pregunta{
+margin-bottom: 50px;
+width:80%;
+float:left;
+}
+.arrowright{
+padding-top: 500px;
+padding-left: 20px;
+width:10%;
+float:left;
+}
+.arrowleft {
+padding-top: 500px;
+padding-right: 20px;
+width:10%;
+float:left;
+}
+.columnleft {
+    float: left;
+    width: 65%;
+    padding: 10px;
+}
+.columnAlumnos {
+    float: left;
+    width: 14%;
+    padding: 25px;
+}
+.columnPictos {
+    display:inline-block;
+}
+.columnright {
+    float: left;
+    width: 35%;
+    padding: 10px;
+}
+
+.columnleftbox {
+    float: left;
+    width: 30%;
+    padding-left: 10px;
+}
+.columnrighttext {
+    float: left;
+    width: 70%;
+    padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    display: table;
+    clear: both;
+    }
+.why {
+  max-width:70px;
+  max-height:70px;
+}
+.whyquestion {
+  vertical-align: middle;
+  text-align: center;
+  font-size: 150%;
+  line-height: 38px;
+}
+.whycolumn1 {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.whycolumn2 {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+  </style>
+{% endblock %}

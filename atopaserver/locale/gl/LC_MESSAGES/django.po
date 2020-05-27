@@ -1,0 +1,472 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-12 09:32+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "No puede haber huecos entre alumnos"
+msgstr "Non pode haber hocos entre alumnos"
+
+#: atopaserver/atopaserver/settings.py:139
+msgid "Español"
+msgstr ""
+
+#: atopaserver/atopaserver/settings.py:140
+msgid "Galego"
+msgstr ""
+
+#: atopaserver/templates/base.html:43
+msgid "Registrarse como profesor"
+msgstr "Rexistrarse como profesor"
+
+#: atopaserver/templates/base.html:46
+msgid "Salir"
+msgstr "Saír"
+
+#: atopaserver/templates/cuestionarios/test.html:23
+msgid "Bienvenido/a al cuestionario,"
+msgstr "Benvido/a ao cuestionario"
+
+#: atopaserver/templates/cuestionarios/test.html:24
+msgid ""
+"En este test tendrás que contestar a 6 preguntas sobre tus compañeros de "
+"clase."
+msgstr "Neste test tendrás que contestar a 6 preguntas sobre os teus compañeiros de "
+"clase."
+
+#: atopaserver/templates/cuestionarios/test.html:25
+msgid "Cuando estés listo para comenzar, haz click en el botón:"
+msgstr "Cando esteas listo para comezar, fai click no botón:"
+
+#: atopaserver/templates/cuestionarios/test.html:171
+msgid "Anterior"
+msgstr ""
+
+#: atopaserver/templates/cuestionarios/test.html:182
+#: atopaserver/templates/usuarios/register.html:64
+msgid "Siguiente"
+msgstr "Seguinte"
+
+#: atopaserver/templates/usuarios/login.html:62
+msgid "Entrar"
+msgstr ""
+
+#: atopaserver/templates/usuarios/register.html:61
+msgid "He leído y acepto los"
+msgstr "Lin e acepto os"
+
+#: atopaserver/templates/usuarios/register.html:61
+msgid "Términos y condiciones y la Política de Privacidad"
+msgstr "Términos e condicións e a Política de Privacidade"
+
+#: atopaserver/templates/usuarios/register.html:65
+msgid "Volver"
+msgstr ""
+
+#: atopaserver/usuarios/forms.py:25
+msgid "Código"
+msgstr ""
+
+#: atopaserver/usuarios/forms.py:32
+msgid "Ese código no es válido"
+msgstr "Ese código non é válido"
+
+#: atopaserver/usuarios/forms.py:38 atopaserver/usuarios/forms.py:40
+#: atopaserver/usuarios/forms.py:45 atopaserver/usuarios/forms.py:46
+msgid "Obligatorio"
+msgstr ""
+
+#: atopaserver/usuarios/forms.py:42 atopaserver/usuarios/forms.py:44
+msgid "Obligatorio. Introduzca una dirección de correo válida"
+msgstr "Obligatorio. Introduza unha dirección de correo válida"
+
+#: atopaserver/usuarios/forms.py:55
+msgid ""
+"Obligatorio. 150 caracteres como máximo. Únicamente letras, dígitos y @, ., "
+"+, -, _"
+msgstr "Obligatorio. 150 caracteres como máximo. Unicamente letras, díxitos e @, ., "
+       "+, -, _"
+
+#: atopaserver/usuarios/forms.py:56 atopaserver/usuarios/forms.py:102
+msgid "8 caracteres como mínimo. Debe tener letras y dígitos"
+msgstr "8 caracteres como mínimo. Debe ter letras e díxitos"
+
+#: atopaserver/usuarios/forms.py:57 atopaserver/usuarios/forms.py:103
+msgid "Para verificar, introduzca la misma contraseña anterior"
+msgstr "Para verificar, introduza a mesma contrasinal anterior"
+
+#: atopaserver/usuarios/forms.py:64
+msgid "Ya existe un usuario con ese email"
+msgstr "Xa existe un usuario con ese email"
+
+#: atopaserver/usuarios/forms.py:73
+msgid "El formato del DNI no es correcto"
+msgstr "O formato do DNI non é correcto"
+
+#: atopaserver/usuarios/forms.py:75
+msgid "Ya existe un usuario con ese DNI"
+msgstr "Xa existe un usuario con ese DNI"
+
+#: atopaserver/usuarios/forms.py:83
+msgid "El nombre de usuario es demasiado largo"
+msgstr "O nome de usuario é demasiado longo"
+
+#: atopaserver/usuarios/forms.py:85 atopaserver/usuarios/forms.py:87
+msgid "Este campo es requerido"
+msgstr "Requírese este campo"
+
+#: atopaserver/usuarios/forms.py:95 atopaserver/usuarios/forms.py:110
+msgid "La contraseña es demasiado corta"
+msgstr "A contrasinal é demasiado curta"
+
+#: atopaserver/usuarios/models.py:18
+msgid "email address"
+msgstr ""
+
+#: atopaserver/usuarios/models.py:19
+msgid "email address colegio"
+msgstr ""
+
+#: atopaserver/usuarios/models.py:21
+msgid "nombre"
+msgstr ""
+
+#: atopaserver/usuarios/models.py:22
+msgid "apellidos"
+msgstr ""
+
+#: atopaserver/usuarios/models.py:23
+msgid "date joined"
+msgstr ""
+
+msgid "Adivina quién ayuda más a sus compañeros y compañeras."
+msgstr "Adiviña quen axuda mais aos compañeiros e compañeiras."
+
+msgid "Adivina quién es el compañero o compañera más feliz."
+msgstr "Adiviña quen é o compañeiro ou compañeira mais feliz."
+
+msgid "Adivina quién es el compañero o compañera más listo o lista de la clase."
+msgstr "Adiviña quen é o compañeiro oi compañeira mais listo ou lista da clase."
+
+msgid "Adivina quién es el compañero o compañera más triste."
+msgstr "Adiviña quen é o compañeiro ou compañeira mais triste."
+
+msgid "Adivina quién es el compañero o compañera que sabe comunicarse mejor y que le entienden y escuchen con más facilidad."
+msgstr "Adiviña quen é o compañeiro ou compañeira que sabe comunicarse mellor e o que entenden e escoitan con mais facilidade."
+
+msgid "Adivina quién es el compañero o compañera que tiene capacidad para atender y escuchar a los demás."
+msgstr "Adiviña quen e o compañeiro ou compañeira que ten capacidad para atender e escoitar aos demais."
+
+msgid "Adivina quién es el compañero o compañera que tiene capacidad para resolver conflictos entre los compañeros y compañeras."
+msgstr "Adiviña quen é o compañeiro ou compañeira que ten capacidade para resolver conflitos entre os compañeiros e compañeiras."
+
+msgid "Adivina quién es el compañero o compañera que tiene más amigos y amigas."
+msgstr "Adiviña quen é o compañeiro ou compañeira que ten mais amigos e amigas."
+
+msgid "Adivina quién es el compañero o compañera que tiene menos amigos y amigas."
+msgstr "Adiviña quen é o compañeiro ou compañeira que ten menos amigos e amigas."
+
+msgid "Adivina quién es el compañero o compañera que tiene problemas para comunicarse."
+msgstr "Adiviña quen é o compañeiro ou compañeira que ten problemas para comunicarse."
+
+msgid "Adivina quién es el niño o la niña al que más quiere la profesora o profesor."
+msgstr "Adiviña quen é o neno ou a nena ó que mais quere a profesora ou profesor."
+
+msgid "Adivina quién es el niño o la niña al que menos quiere la profesora o el profesor."
+msgstr "Adiviña quen é o neno ou a nea ó que menos quere a profesora ou o profesor."
+
+msgid "Adivina quién es el o la que menos sabe en clase."
+msgstr "Adiviña quen é o ou a que menos sabe na clase."
+
+msgid "Adivina quién es más maleducado o maleducada con los compañeros y compañeras."
+msgstr "Adiviña quen é mais maleducado ou maleducada cos compañeiros e compañeiras."
+
+msgid "Adivina quién molesta más a sus compañeros y compañeras."
+msgstr "Adiviña quen molesta mais os seus compañeiros e compañeiras."
+
+msgid "Adivina quién tiene capacidad para resolver conflictos entre los compañeros y compañeras."
+msgstr "Adiviña quen ten capacidade para resolver conflitos entre os compañieros e compañeiras."
+
+msgid "Dime aquel compañero o compañera que crees que tiene más amigos en facebook."
+msgstr "Dime aquel compañeiro ou compañeira que crees que ten mais amigos en facebook."
+
+msgid "Dime aquel compañero o compañera que crees que tiene más seguidores en twitter o instagram."
+msgstr "Dime aquel compañeiro o compañeira que crees que ten mais seguidores en twitter ou instagram."
+
+msgid "Dime aquel compañero o compañera que crees que tiene menos amigos en facebook."
+msgstr "Dime aquel compañeiro o compañeira que crees que ten menos amigos en facebook."
+
+msgid "Dime aquel compañero o compañera que crees que tiene menos seguidores en twitter o instagram."
+msgstr "Dime aquel compañeiro ou compañeira que crees que ten menos seguidores en twitter ou instagram."
+
+msgid "Dime aquel compañero o compañera que cuando llega a los grupos molesta, no comparte ni respeta, e intenta que todos hagan las cosas a su manera."
+msgstr "Dime aquel compañeiro ou compañeira que cando chega ós grupos molesta, no comparte ni respecta, e intenta que todos fagan as cousas a súa maneira."
+
+msgid "Dime aquel compañero o compañera que empieza las peleas, se mete con los demás, les empuja o les pega."
+msgstr "Dime aquel compañeiro ou compañeira que empeza as pelexas, métese cos demais, empurralles ou pégalles."
+
+msgid "Dime aquel compañero o compañera que es elegido como líder, como niño o niña más popular de la clase."
+msgstr "Dime aquel compañeiro ou compañeira que é elixido como líder, como o neno ou a nena mais popular da clase."
+
+msgid "Dime aquel compañero o compañera que es muy agradable, cordial y realmente bueno o buena para trabajar en equipo."
+msgstr "Dime aquel compañeiro ou compañeira que é moi agradable, cordial e realmente bo ou boa para traballar en equipo."
+
+msgid "Dime aquel compañero o compañera que es muy agradable, cordial y realmente bueno o buena para trabajar en equipo. Coopera, ayuda, comparte y respeta los turnos."
+msgstr "Dime aquel compañeiro o compañeira que é moi agradable, cordial e realmente bo ou boa para traballar en equipo. Coopera, axuda, comparte e respecta os turnos."
+
+msgid "Dime aquel compañero o compañera que es muy tímido o tímida con los demás, siempre juega o trabaja solo o sola y es más difícil llegar a conocer."
+msgstr "Dime aquel compañeiro o compañeira que é moi tímido ou tímida cos demais, siempre xoga ou traballa so ou soa e é mais difícil de chegar a coñecer."
+
+msgid "Dime aquel compañero o compañera que molesta más a los demás."
+msgstr "Dime aquel compañeiro ou compañeira que molesta mais os demais"
+
+msgid "Dime aquel compañero o compañera que no comparte ni respeta a los demás."
+msgstr "Dime aquel compañeiro ou compañeira que non comparte nin respecta ós demais."
+
+msgid "Dime aquel compañero o compañera que se mete con los demás."
+msgstr "Dime aquel compañeiro ou compañeira que se mete cos demais."
+
+msgid "Dime aquel compañero o compañera que siempre pide ayuda para hacer cualquier cosa, incluso antes de haberlo intentado."
+msgstr "Dime aquel compañeiro ou compañeira que sempre pide axuda para facer calquera cousa, incluso antes de telo intentado."
+
+msgid "Dime quién es el compañero o compañera que trolea en las redes sociales para reirse de los demás."
+msgstr "Dime quen é o compañeiro ou comapñeira que trolea nas redes sociaos para rirse dos demais."
+
+msgid "Si pudieras invitar a una fiesta, una excursión, un partido a algunos amigos de clase, ¿a qué personas de la clase NO invitarías? ¿Por qué?"
+msgstr "Se puides invitar a unha festa, unha excursión, un partido a alguns amigos e amigas de clase, a que persoas da clase NON invitarias? Por que?"
+
+msgid "Si pudieras invitar a una fiesta, una excursión, un partido a algunos amigos y amigas de clase, ¿a qué personas de la clase invitarías?"
+msgstr "Si puideras invitar a unha festa, unha excursión, um partido a alguns amigos e amigas de clase, a que persoas da clase invitarias."
+
+msgid "Si pudieras invitar a una fista, una excursión, un partido a algunos amigos de clase, ¿a quiénes invitarías?"
+msgstr "Se puideras invitar a unha festa, unha excursión, un partido a algúns amigos e amigas da clase, a quen invitarias?"
+
+msgid "Si pudieses invitar a una fiesta, una excursión, un partido a algunos amigos o amigas de clase, ¿a quién o quiénes NO invitarías?¿Por qué?"
+msgstr "Se puideras invitar a unha festa, unha excursión, un partido a algúns amigos e amigas da clase, a quen ou quenes NON invitarias? Por que?"
+
+msgid "Si tuvieses que escoger un grupo de compañeros para hacer una obra de teatro, ¿a quiénes NO escogerías? ¿Por qué?"
+msgstr "Se tiveses que escoller un grupo de compañeiros e compañeiras  para facer unha obra de teatro, a quen NON escollerías? Por qué?"
+
+msgid "Si tuvieses que escoger un grupo de compañeros y compañeras para hacer una obra de teatro, ¿a quiénes escogerías?"
+msgstr "Se tiveses que escoller a un grupo de compañeiros e compañeiras para facer unha obra de teatro, a quen escollerías? "
+
+msgid "¿A qué compañero o compañera NO llamarías para quedar una tarde? ¿Por qué?"
+msgstr "A que compañeiro ou compañeira NON chamarías para quedar unha tarde? Por que?"
+
+msgid "¿A qué compañeros o compañeras elegirías para hacer un trabajo en grupo?"
+msgstr "A que compañeiros e compañeiras elixirias para facer un traballo en grupo?"
+
+msgid "¿A qué compañeros o compañeras escogerías para formar un equipo de baloncesto en educación física?"
+msgstr "A que compañeiros ou compañeiras escollerias para formar un equipo de balonces en educación física?"
+
+msgid "¿A qué compañeros o compañeras mandarías una solicitud de amistad por facebook?"
+msgstr "A que compañeiros ou compañeiras mandarías unha solicitude de amizade por facefook?"
+
+msgid "¿A qué compañeros o compañeras NO elegirías para hacer un trabajo en grupo? ¿Por qué?"
+msgstr "A que compañeiros ou compañeiras NON escollerías para facer un trabllo en grupo? Por que?"
+
+msgid "¿A qué compañeros o compañeras NO mandarías una solicitud de amistad en facebook? ¿Por qué?"
+msgstr "A que compañeiros ou compañeiras NON mandarias unah solicitude de amizade en facebook? Por que?"
+
+msgid "¿A qué compañeros o compañeras NO pedirías consejo ante un problema personal? ¿Por qué?"
+msgstr "A que compañeiros ou compañeiras NON pedirias consello ante un problema persoal? Por que?"
+
+msgid "¿A qué compañeros o compañeras NO seguirías en istagram o twitter? ¿Por qué?"
+msgstr "A que compañeiros ou compañeiras NON seguirias en instagram ou twitter? Por que?"
+
+msgid "¿A qué compañeros o compañeras pedirías consejo ante problemas personales?"
+msgstr "A que compañeiros ou compañeiras pedirías consello ante problemas persoais?"
+
+msgid "¿A qué compañeros o compañeras pedirías consejo ante un problema personal?"
+msgstr "A que compañairo ou compañeira pedirias consello ante un problema persoal?"
+
+msgid "¿A qué compañeros o compañeras seguirías en istagram o twitter?"
+msgstr "A que compañeiros ou compañeiras seguirias en istagram ou twitter?"
+
+msgid "¿A qué personas de la clase crees que les pareces simpático?"
+msgstr "A que persoas da clase cress que lles pareces simpático ou simpática?"
+
+msgid "¿A qué personas de la clase crees que NO les pareces simpático o simpática?  ¿Por qué?"
+msgstr "A que persoas da clase cress que NON lles pareces simpático ou simpática? Por que?"
+
+msgid "¿A qué personas de la clase invitarías a tu cumpleaños?"
+msgstr "A que persoas da clase invitarias ó teu cumpreanos?"
+
+msgid "¿A qué personas de la clase NO invitarías a tu cumpleaños? ¿Por qué?"
+msgstr "A que persoas da clases NON invitarias ó teu cumpreanos? Por que?"
+
+msgid "¿A qué personas de tu clase crees que les gustaría ir al cine contigo?"
+msgstr "A que persoas da clase cress que lles gustaría ir ó cine contigo?"
+
+msgid "¿A qué personas de tu clase crees que les gustaría ir al cine el próximo viernes contigo?"
+msgstr "A que personas da túa clase crees que lles gustaría ir o cine o proximo venres contigo?"
+
+msgid "¿A qué personas de tu clase crees que les gustaría quedar a estudiar contigo?"
+msgstr "A que persoas da túa clase cress que lles gustaría quedar a estudar contigo?"
+
+msgid "¿A qué personas de tu clase crees que NO les gustaría ir al cine contigo?  ¿Por qué?"
+msgstr "A que persoas da túa clase crees que NON lles gustaría ir ó cine contigo? Por que?"
+
+msgid "¿A qué personas de tu clase crees que NO les gustaría quedar para estudiar contigo?  ¿Por qué?"
+msgstr "A que persoas da túa clase cress que NON lles gustaría quedar para estudar contigo? Por que?"
+
+msgid "¿A qué personas NO elegirías para hacer un trabajo de clase? ¿Por qué?"
+msgstr "A que persoas NON escollerías para facer un traballo de clase? Por que?"
+
+msgid "¿Con qué compañeros o compañeras NO te gustaría quedar para estudiar? ¿Por qué?"
+msgstr "Con que compañeiros ou compañeiras NON che gustaria quedar para estudar? Por que?"
+
+msgid "¿Con qué compañeros o compañeras NO te gustaría sentarte en el aula?¿Por qué?"
+msgstr "Con que compañeiros ou compañeiras NON che gustaria sentarte na aula? Por que?"
+
+msgid "¿Con qué compañeros o compañeras prefiers NO encontrarte en un cumpleaños? ¿Por qué?"
+msgstr "Con que compañeiros ou compañeiras prefires NON encontrarte nun cumpreanos? Por que?"
+
+msgid "¿Con qué compañeros o compañeras te gustaría quedar para estudiar?"
+msgstr "Con que compañeiros ou compañeiras non che gustaría quedar para estudar?"
+
+msgid "¿Con qué compañeros o compañeras te gustaría sentarte en el aula?"
+msgstr "Con que compañeiros ou compañeiras gustaríache sentarte na aula?"
+
+msgid "¿Con qué personas de la clase irías al cine el próximo viernes?"
+msgstr "Con que persoas da clase irías o cine o próximo venres?"
+
+msgid "¿Con qué personas de la clase NO te gusta trabajar o NO elegirías para hacer un trabjo de clase? ¿Por qué?"
+msgstr "Con que persoas da clases NON te gusta traballar e NON escollerías para facer un traballo da clase? Por que?"
+
+msgid "¿Con qué personas de la clase prefieres trabajar o elegirías para hacer un trabajo de clase?"
+msgstr "Con que personas da clase prefires traballas ou escollerias para facer un traballo da clase?"
+
+msgid "¿Con qué personas prefieres estar juntos en el recreo?"
+msgstr "Con que persoas prefires estar xuntos no recreo?"
+
+msgid "¿Con qué personas prefieres jugar en el recreo?"
+msgstr "Con que persoas prefires xogar no recreo?"
+
+msgid "¿Con qué personas prefieres NO jugar en el recreo?¿Por qué?"
+msgstr "Con que persoas prefires NON xogar no recreo? Por que?"
+
+msgid "¿Con quién irias al cine el próximo viernes?"
+msgstr "Con quen irias ó cine o próximo venres?"
+
+msgid "¿Qué compañeros o compañeras crees que NO quieren sentarse en el aula contigo?  ¿Por qué?"
+msgstr "Que compañeiros ou compañeiras cress que NON queren sentarse na aula contigo? Por que?"
+
+msgid "¿Qué compañeros o compañeras crees que NO te escogerían para hacer una obra de teatro con ellos?  ¿Por qué?"
+msgstr "Que compañeiros ou compañeiras crees que NON te escollerían para facer unha obra de teatro con eles? Por que?"
+
+msgid "¿Qué compañeros o compañeras crees que NO te mandarían una solicitud de amistad por facebook?  ¿Por qué?"
+msgstr "Que compañeiros ou compañeiras crees que NON che mandarían unha soicitude de amizade por facebook? Por que?"
+
+msgid "¿Qué compañeros o compañeras crees que NO te pedirían consejo ante un problema personal?  ¿Por qué?"
+msgstr "Que compañeiros ou compañeiras cress que NON che pedirian consello ante un problema persoal? Por que?"
+
+msgid "¿Qué compañeros o compañeras crees que NO te seguirían en instagram o twitter?  ¿Por qué?"
+msgstr "Que compañeiros ou compañeiras cress que NON te seguirian en instagram ou en twitter? Por que?"
+
+msgid "¿Qué compañeros o compañeras crees que quieren sentarse en el aula contigo?"
+msgstr "Que compañeiros ou compañeiras cress que queren sentarse na aula contigo?"
+
+msgid "¿Qué compañeros o compañeras crees que te escogerían para hacer una obra de teatro con ellos?"
+msgstr "Que compañeiros ou compañeiras cress que te escollerían para facer unha obra de teatro con eles?"
+
+msgid "¿Qué compañeros o compañeras crees que te mandarían una solicitud de amistad por facebook?"
+msgstr "Que compañeiros ou compañeiras cress que che mandarian una solicitude de amizade por facebook?"
+
+msgid "¿Qué compañeros o compañeras crees que te pedirían consejo ante un problema personal?"
+msgstr "Que compañeiros ou compañeiras cress que che pedirian consello ante un problema persoal?"
+
+msgid "¿Qué compañeros o compañeras crees que te seguirían en istagram o twitter?"
+msgstr "Que compañeiros ou compañeiras cress que te segurían en instagram ou twitter?"
+
+msgid "¿Qué compañeros o compañeras NO te parecen simpáticos? ¿Por qué?"
+msgstr "Que compañeiros ou compañeiras NON che parecen simpáticos? Por que?"
+
+msgid "¿Qué compañeros o compañeras te parecen más simpáticos?"
+msgstr "Que compañeiros ou compañeiras parecenche mais simpáticos?"
+
+msgid "¿Qué niños o niñas crees que NO te escogerían para estar juntos en el recreo?  ¿Por qué?"
+msgstr "Que nenos ou nenas cress que NON che escollerían para estar xuntos no recreo? POr que?"
+
+msgid "¿Qué niños o niñas crees que NO te escogerían para jugar en el el recreo? ¿Por qué?"
+msgstr "Que nenos ou nenas crees que NON che escollerían para xogar no recreo? Por que?"
+
+msgid "¿Qué niños o niñas crees que te escogerían para jugar en el recreo?"
+msgstr "Que nenos ou nenas crees que che escollerían para xogar no recreo? "
+
+msgid "¿Qué niños o niñas cress que te escogerían para estar juntos en el recreo?"
+msgstr "Que nenos ou nenas crees que che escollería para estar xuntos no recreo?"
+
+msgid "¿Qué personas de tu clase crees que NO les gustaría ir al cine contigo?  ¿Por qué?"
+msgstr "Que persoas da túa clase crees que NON lles gustaría ir ó cine contigo? Por que?"
+
+msgid "¿Qué personas de tu clase crees que NO te echarían de menos si cambiases de colegio?  ¿Por qué?"
+msgstr "Que persoas da túa clase crees que NON te votarían de menos se cambiases de escola? Por que?"
+
+msgid "¿Qué personas de tu clase crees que NO te invitarían a una fiesta, una excursión, o un partido?  ¿Por qué?"
+msgstr "Que persoas da túa clase cress que NON te invitrían a unha festa, unha excursión, ou un partido? Por que?"
+
+msgid "¿Qué personas de tu clase crees que te invitarían a una fiesta, a una excursión, o a un partido?"
+msgstr "Que persoas da túa clase cress que te invitrían a unha festa, a unha excursión, ou a un partido?"
+
+msgid "¿Qué personas de tu clase cress que te invitarían a una fiesta, una excursión, o un partido?"
+msgstr "Que persoas da túa clase cress que te invitarían a unha festa, unha excursión, ou un partido?"
+
+msgid "¿Qué personas de tu clase echarías de menos si no estuviesen?"
+msgstr "Que persoas da túa clase votarías de menos se non estivesen?"
+
+msgid "¿Qué persosnas de tu clase crees que te echarían de menos si cambiases de colegio?"
+msgstr "Que persoas da túa clase cress que te votarían de menos se cambiases de escola?"
+
+msgid "¿Quién o quiénes crees que NO te escogen como amigo o amiga?  ¿Por qué?"
+msgstr "Quen cress que NON te escollería como amigo ou amiga? Por que?"
+
+msgid "¿Quién o quiénes crees que NO te han elegido como compañero o compañera de trabajo?  ¿Por qué?"
+msgstr "Quen crees que NON te escolleu como compañeiro ou compañeira de traballo? Por que?"
+
+msgid "¿Quién o quiénes crees que NO te han elegido para formar un grupo de trabajo?  ¿Por qué?"
+msgstr "Quen cress que NON te escolleu para formar un grupo de traballo? Por que?"
+
+msgid "¿Quién o quiénes crees que NO te han elegido para hacer un trabajo de aula? ¿Por qué?"
+msgstr "Quen crees que NON te escolleu para facer un traballo de aula? Por que?"
+
+msgid "¿Quién o quiénes crees que NO te van a invitar a su cumpleaños?  ¿Por qué?"
+msgstr "Que crees que NON vai invitarte o seu cumpreanos? Por que?"
+
+msgid "¿Quién o quiénes crees que te escogen como mejor amigo o mejor amiga?"
+msgstr "Quen crees que te escolle como mellor amigo ou amiga?"
+
+msgid "¿Quién o quiénes crees que te han elegido para formar un grupo de trabajo?"
+msgstr "Quen crees que te escolleu para formar un grupo de traballo?"
+
+msgid "¿Quién o quiénes crees que te han elegido para hacer un trabajo de aula?"
+msgstr "Quen crees que te escolleu para facer un trabllo de aula?"
+
+msgid "¿Quién o quiénes crees que te van a  invitar a su cumpleaños?"
+msgstr "Quen crees que vai invitarte o seu cumpreanos?"
+
+msgid "¿Quiénes son los compañeros o compañeras de tu clase con los que NO te gustaría seguir el curso que viene? ¿Por qué?"
+msgstr "Quen son os compañeiros e compañeiras da túa clase cos que NON te gustaría seguir o curso que ven? Por que?"
+
+msgid "¿Quiénes son los compañeros o compañeras de tu clase con los que te gustaría seguir el curso que viene?"
+msgstr "Quen son os compañeiros e compañeiras da túa clase cos que che gustaría seguir o curso que ven?"
+
+msgid "¿Quienes son tus mejores amigos y amigas?"
+msgstr "Quen son os teus mellores amigos e amigas?"
+
+msgid "¿Quiénes son tus mejores amigos?"
+msgstr "Quen son os teus mellores amigos e amigas?"

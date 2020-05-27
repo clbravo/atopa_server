@@ -1,0 +1,8 @@
+Django
+requests
+djangorestframework
+django-mysql
+django-bootstrap4
+django-octicons
+django-widget-tweaks
+gunicorn
