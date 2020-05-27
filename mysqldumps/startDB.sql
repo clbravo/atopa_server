@@ -1,4 +1,3 @@
-INSERT IGNORE INTO `usuarios_user` VALUES ('1','pbkdf2_sha256$36000$A0rEvoM4BkSd$DAelfd5bs4TVYHXp8x2rbm6mIUsFDuUmkZ2fc9uokeU=','NULL','1','participa@atopa.es','participa@atopa.es','admin','admin','admin','2020-03-01 11:59:12.978349','admin','11111111A','admin','1','0','1');
 INSERT IGNORE INTO `cuestionarios_test` VALUES ('1','Inicial', NULL);
 INSERT IGNORE INTO `cuestionarios_tipo_estructura` VALUES (1,'F','Formal'),(2,'I','Informal');
 INSERT IGNORE INTO `cuestionarios_tipo_pregunta` VALUES (1,'PGP','Percepción del grupo positiva'),(2,'PGN','Percepción del grupo negativa'),(3,'PPP','Percepción propia positiva'),(4,'PPN','Percepción propia negativa'),(5,'AAP','Asociación de atributos positiva'),(6,'AAN','Asociación de atributos negativa');
