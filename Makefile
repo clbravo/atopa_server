@@ -21,6 +21,6 @@ compilemessages:
 web-shell:
 	bash -c "docker exec -it atopaserver /bin/bash"
 db-shell:
-	bash -c 'docker exec -it atopaserver_db mysql -h db -u root -patopa'
+	bash -c 'docker exec -it atopaserver_db mysql -h db -u root -p'
 clean-migrations:
 	bash -c "find . -path '*/migrations/*.pyc'  -delete && find . -path '*/migrations/*.py' -not -name '__init__.py' -delete && echo 'DONE!'"
