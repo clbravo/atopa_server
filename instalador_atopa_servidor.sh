@@ -45,10 +45,6 @@ crearVariablesEntorno()
         # Docker
         echo "ENV_MYSQL_ROOT_PASSWORD=$ATOPA_SERVER_PASS" >> .env
 
-        # Configurar secret key
-        SECRET=$(cat /dev/urandom | tr -dc '[:print:]' | head -c 50; echo)
-        echo "ENV_SECRET_KEY=$SECRET" >> .env
-
 	# Gestion de correo
 	echo "ENV_EMAIL_HOST=smtp.gmail.com" >> .env
 	echo "ENV_EMAIL_HOST_USER=" >> .env  	 # Asignarle un valor
