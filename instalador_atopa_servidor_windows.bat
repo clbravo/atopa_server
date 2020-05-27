@@ -6,7 +6,7 @@ SET ATOPA_SERVER_PORT=%3
 SET ATOPA_SERVER_PATH=.\atopa_server
 SET ATOPA_SERVER_URL=https://github.com/AndreaCarballo/atopa_server.git
 
-IF "%3"=="" (echo Uso: ./instalador_atopa_servidor_windows.bat contraseña ip puerto)
+IF "%3"=="" (echo Uso: .\instalador_atopa_servidor_windows.bat contraseña ip puerto)
 IF "%3"=="" (exit)
 
 IF NOT EXIST %ATOPA_SERVER_PATH% GOTO NOWINDIR
@@ -49,7 +49,7 @@ REM important to have two blank lines after the SET command
 <NUL set /p=/usr/sbin/nginx -g ^"daemon off;^"^%LF%%LF%>> entrypoint
 
 echo @ECHO OFF > comandos.bat
-echo IF ^"%%1^"==^"^" (echo Uso: ./comandos.bat build ^| up ^| down ^| restart ^| status ^| django-shell ^| createsuperuser ^| makemigrations ^| migrate ^| compilemessages ^| web-shell ^| db-shell ^| clean-migrations) >> comandos.bat
+echo IF ^"%%1^"==^"^" (echo Uso: .\comandos.bat build ^^^| up ^^^| down ^^^| restart ^^^| status ^^^| django-shell ^^^| createsuperuser ^^^| makemigrations ^^^| migrate ^^^| compilemessages ^^^| web-shell ^^^| db-shell ^^^| clean-migrations) >> comandos.bat
 echo IF ^"%%1^"==^"^" (exit) >> comandos.bat
 echo IF ^"%%1^"==^"build^" (docker-compose build) >> comandos.bat
 echo IF ^"%%1^"==^"up^" (docker-compose up -d) >> comandos.bat
