@@ -44,13 +44,12 @@ class SignUpForm(UserCreationForm):
                              help_text=gettext('Obligatorio. Introduzca una dirección de correo válida'))
     colegio = forms.CharField(max_length=254, help_text=gettext('Obligatorio'))
     DNI = forms.CharField(max_length=254, help_text=gettext('Obligatorio'),widget=forms.TextInput(attrs={'onchange': 'changedni();'}))
-    evaluacion = forms.BooleanField(required=False,initial=False, label=ugettext('Voy a participar en la evaluación de la aplicación ATOPA'))
 
 
     class Meta:
         model = User
         fields = ('username', 'nombre', 'apellidos',
-                  'email', 'DNI', 'colegio', 'email_colegio','password1', 'password2','evaluacion',)
+                  'email', 'DNI', 'colegio', 'email_colegio','password1', 'password2',)
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)

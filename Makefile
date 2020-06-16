@@ -9,15 +9,15 @@ restart:
 status:
 	bash -c "docker ps"
 django-shell:
-	bash -c "docker-compose exec web python /atopa/atopaserver/manage.py shell"
+	bash -c "docker-compose exec web python3 /atopa/atopaserver/manage.py shell"
 createsuperuser:
-	bash -c "docker-compose exec web python /atopa/atopaserver/manage.py createsuperuser"
+	bash -c "docker-compose exec web python3 /atopa/atopaserver/manage.py createsuperuser"
 makemigrations:
-	bash -c "docker-compose exec web python /atopa/atopaserver/manage.py makemigrations"
+	bash -c "docker-compose exec web python3 /atopa/atopaserver/manage.py makemigrations"
 migrate:
-	bash -c "docker-compose exec web python /atopa/atopaserver/manage.py migrate"
+	bash -c "docker-compose exec web python3 /atopa/atopaserver/manage.py migrate"
 compilemessages:
-	 bash -c "docker-compose exec web python /atopa/atopaserver/manage.py compilemessages"
+	 bash -c "docker-compose exec web python3 /atopa/atopaserver/manage.py compilemessages"
 web-shell:
 	bash -c "docker exec -it atopaserver /bin/bash"
 db-shell:

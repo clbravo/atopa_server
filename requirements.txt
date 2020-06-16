@@ -1,8 +1,8 @@
-Django
-requests
-djangorestframework
-django-mysql
-django-bootstrap4
-django-octicons
-django-widget-tweaks
-gunicorn
+Django==3.0.6
+requests==2.23.0
+djangorestframework==3.11.0
+django-mysql==3.5.0
+django-bootstrap4==1.1.1
+django-octicons==1.0.2
+django-widget-tweaks==1.4.8
+gunicorn==20.0.4

@@ -43,5 +43,6 @@ urlpatterns = [
     url(r'^usuarios/', include('usuarios.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'', include('cuestionarios.urls')),
-    url('api/test/', views.TestView.as_view(), name='test')
+    url('api/test/', views.TestView.as_view(), name='test'),
+    url('api/user/', views.UserView.as_view(), name='user')
 ]

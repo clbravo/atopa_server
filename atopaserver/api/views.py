@@ -32,6 +32,18 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
 
+class UserView(APIView):
+    permission_classes = [IsAuthenticated]
+    def put(self,request):
+        eva = request.data['eva']
+        teacher = User.objects.get(username=request.user)
+        if eva == '1':
+            teacher.evaluacion = True
+        else:
+            teacher.evaluacion = False
+        teacher.save()
+        return Response({"message": "Evaluación cambiada"},status=204)
+
 
 class TestViewSet(viewsets.ModelViewSet):
     """

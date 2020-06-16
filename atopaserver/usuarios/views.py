@@ -26,6 +26,7 @@ def register(request):
             user = form.save()
             user.is_staff = True
             user.is_active = True
+            user.evaluacion = False
             user.test.set(Test.objects.filter(nombre='Inicial'))
             user.save()
             

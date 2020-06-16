@@ -7,7 +7,10 @@ SET ATOPA_SERVER_PATH=.\atopa_server
 SET ATOPA_SERVER_URL=https://github.com/AndreaCarballo/atopa_server.git
 
 IF "%3"=="" (echo Uso: ./instalador_atopa_servidor_windows.bat contraseña ip puerto)
-IF "%3"=="" (exit)
+IF "%3"=="" (set /P ATOPA_APP_PASS=Introduzaca la contraseña que quiere darle a la base de datos de la aplicación:)
+IF "%3"=="" (set /P ATOPA_SERVER_IP=Introduzaca la ip:)
+IF "%3"=="" (set /P ATOPA_SERVER_PORT=Introduzaca el puerto:)
+echo Iniciando la instalación...
 
 IF NOT EXIST %ATOPA_SERVER_PATH% GOTO NOWINDIR
   CD %ATOPA_SERVER_PATH%
@@ -49,20 +52,21 @@ REM important to have two blank lines after the SET command
 <NUL set /p=/usr/sbin/nginx -g ^"daemon off;^"^%LF%%LF%>> entrypoint
 
 echo @ECHO OFF > comandos.bat
-echo IF ^"%%1^"==^"^" (echo Uso: ./comandos.bat build ^| up ^| down ^| restart ^| status ^| django-shell ^| createsuperuser ^| makemigrations ^| migrate ^| compilemessages ^| web-shell ^| db-shell ^| clean-migrations) >> comandos.bat
+echo IF ^"%%1^"==^"^" (echo Uso: ./comandos.bat build ^^^| up ^^^| down ^^^| restart ^^^| status ^^^| django-shell ^^^| createsuperuser ^^^| makemigrations ^^^| migrate ^^^| compilemessages ^^^| web-shell ^^^| db-shell ^^^| clean-migrations) >> comandos.bat
 echo IF ^"%%1^"==^"^" (exit) >> comandos.bat
 echo IF ^"%%1^"==^"build^" (docker-compose build) >> comandos.bat
 echo IF ^"%%1^"==^"up^" (docker-compose up -d) >> comandos.bat
 echo IF ^"%%1^"==^"down^" (docker-compose down) >> comandos.bat
 echo IF ^"%%1^"==^"restart^" (docker-compose restart) >> comandos.bat
 echo IF ^"%%1^"==^"status^" (docker ps) >> comandos.bat
-echo IF ^"%%1^"==^"django-shell^" (docker-compose exec web python /atopa/atopaserver/manage.py shell) >> comandos.bat
-echo IF ^"%%1^"==^"createsuperuser^" (docker-compose exec web python /atopa/atopaserver/manage.py createsuperuser) >> comandos.bat
-echo IF ^"%%1^"==^"makemigrations^" (docker-compose exec web python /atopa/atopaserver/manage.py makemigrations) >> comandos.bat
-echo IF ^"%%1^"==^"migrate^" (docker-compose exec web python /atopa/atopaserver/manage.py migrate) >> comandos.bat
-echo IF ^"%%1^"==^"compilemessages^" (docker-compose exec web python /atopa/atopaserver/manage.py compilemessages) >> comandos.bat
+echo IF ^"%%1^"==^"django-shell^" (docker-compose exec web python3 /atopa/atopaserver/manage.py shell) >> comandos.bat
+echo IF ^"%%1^"==^"createsuperuser^" (docker-compose exec web python3 /atopa/atopaserver/manage.py createsuperuser) >> comandos.bat
+echo IF ^"%%1^"==^"makemigrations^" (docker-compose exec web python3 /atopa/atopaserver/manage.py makemigrations) >> comandos.bat
+echo IF ^"%%1^"==^"migrate^" (docker-compose exec web python3 /atopa/atopaserver/manage.py migrate) >> comandos.bat
+echo IF ^"%%1^"==^"compilemessages^" (docker-compose exec web python3 /atopa/atopaserver/manage.py compilemessages) >> comandos.bat
 echo IF ^"%%1^"==^"web-shell^" (docker exec -it atopaserver /bin/bash) >> comandos.bat
 echo IF ^"%%1^"==^"clean-migrations^" (find . -path ^'*/migrations/*.pyc^'  -delete ^&^& find . -path ^'*/migrations/*.py^' -not -name ^'__init__.py^' -delete ^&^& echo ^'DONE!^') >> comandos.bat
 echo IF ^"%%1^"==^"db-shell^" (docker exec -it atopaserver_db mysql -h db -u root -p%ATOPA_APP_PASS%) >> comandos.bat
 
 docker-compose build
+set /p=Hit Instalación finalizada correctamente. Pulse ENTER para salir...
