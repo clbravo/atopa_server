@@ -31,8 +31,8 @@ echo ENV_SERVER_PORT=%ATOPA_SERVER_PORT% >>.env
 echo ENV_MYSQL_ROOT_PASSWORD=%ATOPA_APP_PASS% >>.env
 
 echo ENV_EMAIL_HOST=smtp.gmail.com >> .env
-echo ENV_EMAIL_HOST_USER= >> .env  	 
-echo ENV_EMAIL_HOST_PASSWORD= >> .env 
+echo ENV_EMAIL_HOST_USER= >> .env
+echo ENV_EMAIL_HOST_PASSWORD= >> .env
 echo ENV_EMAIL_PORT=587 >> .env
 
 "C:\Program Files (x86)\GnuWin32\bin\openssl.exe" req -x509 -newkey rsa:4096 -keyout atopa_key.pem -out atopa.pem -days 365 -nodes -config req.conf -sha256
@@ -52,7 +52,7 @@ REM important to have two blank lines after the SET command
 <NUL set /p=/usr/sbin/nginx -g ^"daemon off;^"^%LF%%LF%>> entrypoint
 
 echo @ECHO OFF > comandos.bat
-echo IF ^"%%1^"==^"^" (echo Uso: ./comandos.bat build ^^^| up ^^^| down ^^^| restart ^^^| status ^^^| django-shell ^^^| createsuperuser ^^^| makemigrations ^^^| migrate ^^^| compilemessages ^^^| web-shell ^^^| db-shell ^^^| clean-migrations) >> comandos.bat
+echo IF ^"%%1^"==^"^" (echo Uso: .\comandos.bat build ^^^| up ^^^| down ^^^| restart ^^^| status ^^^| django-shell ^^^| createsuperuser ^^^| makemigrations ^^^| migrate ^^^| compilemessages ^^^| web-shell ^^^| db-shell ^^^| clean-migrations) >> comandos.bat
 echo IF ^"%%1^"==^"^" (exit) >> comandos.bat
 echo IF ^"%%1^"==^"build^" (docker-compose build) >> comandos.bat
 echo IF ^"%%1^"==^"up^" (docker-compose up -d) >> comandos.bat
