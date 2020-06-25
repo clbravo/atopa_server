@@ -4,7 +4,7 @@ SET ATOPA_APP_PASS=%1
 SET ATOPA_SERVER_IP=%2
 SET ATOPA_SERVER_PORT=%3
 SET ATOPA_SERVER_PATH=.\atopa_server
-SET ATOPA_SERVER_URL=https://github.com/AndreaCarballo/atopa_server.git
+SET ATOPA_SERVER_URL=https://github.com/clbravo/atopa_server.git
 
 IF "%3"=="" (echo Uso: ./instalador_atopa_servidor_windows.bat contraseña ip puerto)
 IF "%3"=="" (set /P ATOPA_APP_PASS=Introduzaca la contraseña que quiere darle a la base de datos de la aplicación:)
