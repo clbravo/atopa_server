@@ -108,7 +108,10 @@ chmod 750 instalador_atopa_servidor.sh
 
 cd $ATOPA_SERVER_PATH
 mkdir ./atopaserver/logs
+touch ./atopaserver/logs/debug.log
 mkdir ../logs
+touch ../logs/debug.log
 mkdir ./logs
+touch ./logs/debug.log
 sudo make build
 
