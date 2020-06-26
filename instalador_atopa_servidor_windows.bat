@@ -7,9 +7,9 @@ SET ATOPA_SERVER_PATH=.\atopa_server
 SET ATOPA_SERVER_URL=https://github.com/clbravo/atopa_server.git
 
 IF "%3"=="" (echo Uso: ./instalador_atopa_servidor_windows.bat contraseña ip puerto)
-IF "%3"=="" (set /P ATOPA_APP_PASS=Introduzaca la contraseña que quiere darle a la base de datos de la aplicación:)
-IF "%3"=="" (set /P ATOPA_SERVER_IP=Introduzaca la ip:)
-IF "%3"=="" (set /P ATOPA_SERVER_PORT=Introduzaca el puerto:)
+IF "%3"=="" (set /P ATOPA_APP_PASS=Introduzca la contraseña que quiere darle a la base de datos de la aplicación:)
+IF "%3"=="" (set /P ATOPA_SERVER_IP=Introduzca la ip:)
+IF "%3"=="" (set /P ATOPA_SERVER_PORT=Introduzca el puerto:)
 echo Iniciando la instalación...
 
 IF NOT EXIST %ATOPA_SERVER_PATH% GOTO NOWINDIR
@@ -70,4 +70,4 @@ echo IF ^"%%1^"==^"db-shell^" (docker exec -it atopaserver_db mysql -h db -u roo
 
 docker-compose build
 docker-compose up -d
-set /p=Hit Instalación finalizada correctamente. Pulse ENTER para salir...
+set /p=Instalación finalizada correctamente. Pulse ENTER para salir...
