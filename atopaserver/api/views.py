@@ -42,7 +42,7 @@ class UserView(APIView):
         else:
             teacher.evaluacion = False
         teacher.save()
-        return Response({"message": "Evaluación cambiada"},status=204)
+        return Response({"message": "Evaluación cambiada"},status=200)
 
 
 class TestViewSet(viewsets.ModelViewSet):
@@ -106,6 +106,7 @@ class TestView(APIView):
         return Response(content)
 
     def delete(self, request):
+        survey = request.data['survey']
         serializer = TestSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         name = serializer.validated_data['nombre']
@@ -113,18 +114,19 @@ class TestView(APIView):
         usersTest = User.test.through.objects.filter(test_id=test)
         teacher = User.objects.get(username=request.user)
         if teacher.evaluacion:
-            if test.first:
-                result = requests.post(
-                            "https://193.146.210.219:5050/AtopaServer/api/test",
-                            json={"id": test.id, "first": test.first},
-                            headers={'Accept': 'application/json',
-                                    'Authorization': 'Basic YXRvcGFhcHA6YXRvcGExMjNhcHA='}, verify=False)
-            else:
-                result = requests.post(
-                            "https://193.146.210.219:5050/AtopaServer/api/test",
-                            json={"id": test.id},
-                            headers={'Accept': 'application/json',
-                                    'Authorization': 'Basic YXRvcGFhcHA6YXRvcGExMjNhcHA='}, verify=False)
+            if survey == "False":
+                if test.first:
+                    result = requests.post(
+                                "https://193.146.210.219:5050/AtopaServer/api/test",
+                                json={"id": test.id, "first": test.first},
+                                headers={'Accept': 'application/json',
+                                        'Authorization': 'Basic YXRvcGFhcHA6YXRvcGExMjNhcHA='}, verify=False)
+                else:
+                    result = requests.post(
+                                "https://193.146.210.219:5050/AtopaServer/api/test",
+                                json={"id": test.id},
+                                headers={'Accept': 'application/json',
+                                        'Authorization': 'Basic YXRvcGFhcHA6YXRvcGExMjNhcHA='}, verify=False)
         
             preguntas = Preguntas_test.objects.filter(test=test)
             preg = []
@@ -162,17 +164,19 @@ class TestView(APIView):
                         json={"users": alumnos, "test": test.id},
                         headers={'Accept': 'application/json',
                                 'Authorization': 'Basic YXRvcGFhcHA6YXRvcGExMjNhcHA='}, verify=False)
+            log.info(result)
             result = requests.post(
                         "https://193.146.210.219:5050/AtopaServer/api/respuestas",
                         json=answers,
                         headers={'Accept': 'application/json',
                                 'Authorization': 'Basic YXRvcGFhcHA6YXRvcGExMjNhcHA='}, verify=False)
+            log.info(result)
         for u in usersTest:
             student = User.objects.get(id=u.user_id)
             if not student.is_staff:
                 student.delete()
         test.delete()
-        return Response({"message": "Test con nombre `{}` se ha borrado.".format(name)},status=204)
+        return Response({"message": "Test con nombre `{}` se ha borrado.".format(name)},status=200)
 
 class ObtainAuthToken(APIView):
     throttle_classes = ()
