@@ -81,7 +81,7 @@ generarCertificados()
 
         if [[ $respuesta == *s*  ||  $respuesta == *S* ]]
         then
-		req -x509 -newkey rsa:4096 -keyout atopa_key.pem -out atopa.pem -days 365 -nodes -config req.conf -sha256
+		openssl req -x509 -newkey rsa:4096 -keyout atopa_key.pem -out atopa.pem -days 365 -nodes -config req.conf -sha256
         else
                 echo "No se ha generado un certificado"
         fi
