@@ -36,7 +36,7 @@ def register(request):
             email_from = settings.EMAIL_HOST_USER
             recipient_list = ['atopareg@gmail.com',]
 
-            #sent = send_mail( subject, message, email_from, recipient_list)
+            sent = send_mail( subject, message, email_from, recipient_list)
 
             # guardarlo en la base de datos para intentar hacer el envío mas tarde
             # si después de hacer el envio varias veces, sigue sin llegar
